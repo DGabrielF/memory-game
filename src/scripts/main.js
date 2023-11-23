@@ -51,7 +51,8 @@ const cards = [
 const state = {
   views: {
     gamePage: document.querySelector(".game"),
-    result: document.querySelector(".score")
+    result: document.querySelector(".score"),
+    resetButton: document.querySelector(".reset"),
   },
   values:{
     firstClicked: null,
@@ -61,7 +62,6 @@ const state = {
   }
 }
 const cardsDuplicated = [...cards, ...cards];
-console.log(cardsDuplicated.length)
 
 let shuffleCards = cardsDuplicated.sort(() =>  (Math.random() > 0.5 ? 2 : -1));
 
@@ -73,12 +73,6 @@ for (let i=0; i<cardsDuplicated.length; i++) {
   box.key = i;
   box.onclick = e => handleClick(box);
   state.views.gamePage.appendChild(box)
-}
-function checkMatch () {
-  console.log('1', state.values.firstClicked)
-  console.log('2', state.values.secondClicked)
-  state.values.firstClicked.classList.remove("box-open");
-  state.values.secondClicked.classList.remove("box-open");
 }
 
 function handleClick (item) {
@@ -94,7 +88,8 @@ function handleClick (item) {
       if (state.values.firstClicked.key !== state.values.secondClicked.key) {
         state.values.hits++
         if (state.values.hits===10) {
-          console.log("você ganhou")
+          state.views.gamePage.classList.add("win-game-page")
+          state.views.resetButton.classList.add("win-button");
         }
         state.values.firstClicked = null;
         state.values.secondClicked = null;

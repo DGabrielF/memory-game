@@ -7,6 +7,8 @@ body {
   min-height: 100vh;
   background: linear-gradient(300deg, #130c57 10%, #d25d5d 80%, #f66dcf 100%);
   user-select: none;
+  display: flex;
+  flex-direction: column;
 }
 
 .container {
@@ -93,4 +95,11 @@ h2 {
 }
 .box-open::after {
   transform: rotateY(180deg);
+}
+.win-button {
+  color: #ffffff;
+  background-color: #388738;
+}
+.win-game-page {
+  background-color: #38873825;
 }
