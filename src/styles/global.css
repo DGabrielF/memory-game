@@ -1,1 +1,64 @@
 @import url("./reset.css");
+
+body {
+  display: flex;
+  justify-content: center;  
+  align-items: center;
+  min-height: 100vh;
+  background: #d25d5d;
+}
+
+.container {
+  width: 98%;
+  padding: 1rem 1rem;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  background: linear-gradient(325deg, #03001e 0%, #7303c0 30%, #ec38bc 70%, #fdeff9 100%);
+}
+.game {
+  background-color: #03001e25;
+  width: 100%;
+  aspect-ratio: 1/1;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  transform-style: preserve-3d;
+  perspective: 500px;
+}
+h2 {
+  font-size: 1.8em;
+  color: #ffffff;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+.reset {
+  padding: 1.5rem 2rem;
+  width: 100%;
+  background-color: #ffffff;
+  border: none;
+  font-size: 1.75em;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+.reset:hover {
+  background-color: #ffffff90;
+}
+.reset:focus {
+  color:#ec38bc;
+  background-color: #03001e;
+}
+.item {
+  position: relative;
+  width: 100px;
+  height: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #ffffff;
+}
