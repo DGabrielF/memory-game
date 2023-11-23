@@ -5,7 +5,8 @@ body {
   justify-content: center;  
   align-items: center;
   min-height: 100vh;
-  background: #d25d5d;
+  background: linear-gradient(300deg, #130c57 10%, #d25d5d 80%, #f66dcf 100%);
+  user-select: none;
 }
 
 .container {
@@ -18,16 +19,21 @@ body {
   align-items: center;
   gap: 1rem;
   background: linear-gradient(325deg, #03001e 0%, #7303c0 30%, #ec38bc 70%, #fdeff9 100%);
+  border-radius: 1.2em;
 }
 .game {
+  padding:0.8em;
   background-color: #03001e25;
   width: 100%;
-  aspect-ratio: 1/1;
+  aspect-ratio: 1/0.8;
   display: flex;
   flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
   gap: 1rem;
   transform-style: preserve-3d;
   perspective: 500px;
+  border-radius: 1.2em;
 }
 h2 {
   font-size: 1.8em;
@@ -44,6 +50,7 @@ h2 {
   font-weight: 700;
   letter-spacing: 0.15em;
   text-transform: uppercase;
+  border-radius: 1.2em;
   cursor: pointer;
 }
 .reset:hover {
@@ -55,10 +62,35 @@ h2 {
 }
 .item {
   position: relative;
-  width: 100px;
-  height: 100px;
+  padding: .2rem;
+  width: 15%;
+  aspect-ratio: 1/1;
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: #ffffff;
+  background-color: transparent;
+  border: .35em solid #fdeff9;
+  border-radius: 1.2em;
+  transform: rotateY(180deg);
+  transition: 0.25s;
+}
+.item::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: #404040;
+  transition: 0.25s;
+  transform: rotateY(0deg);
+  border-radius: 1.2em;
+  top: -.35em;
+  left: -.35em;
+  bottom: -.35em;
+  right: -.35em;
+  backface-visibility: hidden;
+}
+.item.box-open {
+  transform: rotateY(0deg);
+}
+.box-open::after {
+  transform: rotateY(180deg);
 }
